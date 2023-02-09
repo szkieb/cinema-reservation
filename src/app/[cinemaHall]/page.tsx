@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CINEMA } from "util/CinemaHall";
+import { CINEMA } from "_data/cinemaHalls/CinemaHall";
 import {
   SeatClass,
   CoupleSeatClass,
@@ -9,7 +9,7 @@ import {
   CinemaHall,
   Cinema,
 } from "util/cinemaSeatReservation";
-import HeaderComponent from "../headerComponent";
+import HeaderComponent from "../../app/headerComponent";
 import BackButton from "./BackButton";
 import { CinemaSeat } from "./CinemaSeat";
 
@@ -26,6 +26,7 @@ export default function CinemaAuditorium({
 
   // @ts-ignore
   const cinema: Cinema = CINEMA;
+  // const auditorium: CinemaHall = cinema[cinemaHall];
   const auditorium: CinemaHall = JSON.parse(JSON.stringify(cinema[cinemaHall]));
 
   // state for reserve functionality
@@ -45,6 +46,7 @@ export default function CinemaAuditorium({
         }
       />
       <div className="flex flex-col p-4">
+        {/* TODO fix error that is thrown by following line during build process */}
         {Object.keys(auditorium).map((row) => {
           const rowNumb = parseInt(row);
           return (

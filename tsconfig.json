@@ -29,7 +29,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "util/CinemaHall.js"
+    "_data/cinemaHalls/CinemaHall.js"
   ],
   "exclude": ["node_modules"]
 }

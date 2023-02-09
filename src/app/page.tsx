@@ -1,12 +1,20 @@
 import { Inter } from "@next/font/google";
-import { CINEMA_METADATA } from "util/CinemaHall";
 import Link from "next/link";
-import HeaderComponent from "./headerComponent";
 import Image from "next/image";
+
+import { CINEMA_METADATA, CINEMA } from "_data//cinemaHalls/CinemaHall";
+import HeaderComponent from "./headerComponent";
+import { Cinema, CinemaHall } from "util/cinemaSeatReservation";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  //@ts-ignore
+  const cinema: Cinema = CINEMA;
+  const cinemaHallArray = Object.keys(cinema).map((hall) => {
+    return cinema[hall];
+  });
+
   return (
     <>
       <HeaderComponent
@@ -19,6 +27,8 @@ export default function Home() {
             <Link href={`${hall.name}`} className="h-full w-full" key={idx}>
               <div className="flex h-full w-full flex-col gap-y-2 rounded-md bg-slate-200 p-4 ">
                 <Image
+                  height={500}
+                  width={500}
                   src={hall.ImgSrc}
                   alt={hall.ImgSrc}
                   className="h-full w-full object-cover"
@@ -32,3 +42,12 @@ export default function Home() {
     </>
   );
 }
+
+// export function generateStaticParams() {
+//   // @ts-ignore
+//   const cinema: Cinema = CINEMA;
+//   const cinemaHallArray = Object.keys(cinema).map((hall) => {
+//     return cinema[hall];
+//   });
+//   return cinemaHallArray;
+// }

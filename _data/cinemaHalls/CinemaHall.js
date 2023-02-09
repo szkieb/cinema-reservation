@@ -1,5 +1,4 @@
-import { Cinema, CinemaHall, CinemaMetadata } from "./cinemaSeatReservation";
-import { CoupleSeat, Seat } from "./Seat";
+import { CoupleSeat, Seat } from "../Seat";
 
 //CINEMA_HALL_0 with 7 rows and 8 places per row and some coupleSeats
 //1  ■ □ □ □ □ □ ■ ■
