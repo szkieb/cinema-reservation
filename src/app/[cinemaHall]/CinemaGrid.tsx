@@ -19,17 +19,21 @@ export default function CinemaGrid({ auditorium }: CinemaGridProps) {
   const [useSelection, setSelection] = useState<
     (SeatClass | CoupleSeatClass)[]
   >([]);
+
+  // TODO: replace next line
+  const auditoriumParsed: CinemaHall = JSON.parse(JSON.stringify(auditorium));
+
   return (
     <div className="flex flex-col p-4">
       {/* TODO fix error that is thrown by following line during build process */}
-      {Object.keys(auditorium).map((row) => {
+      {Object.keys(auditoriumParsed).map((row) => {
         const rowNumb = parseInt(row);
         return (
           <div className="flex justify-center" key={rowNumb} id={row}>
             <p className="pr-4">Row {rowNumb}:</p>
-            {Object.keys(auditorium[rowNumb]).map((place) => {
+            {Object.keys(auditoriumParsed[rowNumb]).map((place) => {
               const placeNumb = parseInt(place);
-              const seat = auditorium[rowNumb][placeNumb];
+              const seat = auditoriumParsed[rowNumb][placeNumb];
               return (
                 <div
                   className="h-28 w-24 border border-black bg-slate-600 text-center"
@@ -41,13 +45,13 @@ export default function CinemaGrid({ auditorium }: CinemaGridProps) {
                       const updatedReservation = reserve(
                         seat,
                         useSelection,
-                        auditorium
+                        auditoriumParsed
                       );
                       setSelection(updatedReservation);
                     }}
                     seatSelection={useSelection}
                     seat={seat}
-                    reserved={auditorium[rowNumb][placeNumb].reserved}
+                    reserved={auditoriumParsed[rowNumb][placeNumb].reserved}
                   ></CinemaSeat>
                 </div>
               );
