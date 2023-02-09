@@ -55,12 +55,14 @@ type SeatIconProps = {
 function SeatIcon({ seat }: SeatIconProps) {
   let icon;
   let seatType = "Seat";
+  let couple = false;
 
   if ("connected" in seat) {
+    couple = true;
     seatType = "Couple Seat";
     icon = (
-      <div className="relative flex justify-center self-center">
-        <MdOutlineChair className="relative" />
+      <div className="relative flex h-1/3 justify-center self-center">
+        <MdOutlineChair className="relative h-full w-full" />
         <IoMdHeart className="absolute -top-0.5 h-3/5 w-3/5 fill-red-300" />
       </div>
     );
@@ -71,7 +73,7 @@ function SeatIcon({ seat }: SeatIconProps) {
   return (
     <>
       {icon}
-      <p className="text-xs">
+      <p className={clsx(couple ? "text-xs" : "text-sm")}>
         {seatType} {seat.place}
       </p>
     </>

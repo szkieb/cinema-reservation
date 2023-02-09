@@ -1,27 +1,36 @@
 import { Inter } from "@next/font/google";
 import { CINEMA_METADATA } from "util/CinemaHall";
 import Link from "next/link";
+import HeaderComponent from "./headerComponent";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <main className="m-4" style={inter.style}>
-      <h1 className="text-4xl">Cinema Reservation</h1>
-      <h2 className="text-2xl">Please select a cinema</h2>
-      <div className="grid grid-cols-2 gap-4">
-        {CINEMA_METADATA.map((hall, idx) => (
-          <Link href={`${hall.name}`}>
-            <div
-              key={idx}
-              className="flex flex-col gap-y-2 rounded-md bg-slate-200 p-4"
-            >
-              <img src={hall.ImgSrc} alt={hall.ImgSrc} />
-              <p className="font-semibold">Cinema Hall {idx + 1}</p>
-            </div>
-          </Link>
-        ))}
-      </div>
-    </main>
+    <>
+      <HeaderComponent
+        pageTitle="Cinema Reservation"
+        subTitle="Please select a cinema"
+      />
+      <main style={inter.style}>
+        <div className="grid grid-cols-2 gap-5 p-4">
+          {CINEMA_METADATA.map((hall, idx) => (
+            <Link href={`${hall.name}`} className="h-full w-full">
+              <div
+                key={idx}
+                className="flex h-full w-full flex-col gap-y-2 rounded-md bg-slate-200 p-4 "
+              >
+                <img
+                  src={hall.ImgSrc}
+                  alt={hall.ImgSrc}
+                  className="h-full w-full object-cover"
+                />
+                <p className="font-semibold">Cinema Hall {idx + 1}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </main>
+    </>
   );
 }

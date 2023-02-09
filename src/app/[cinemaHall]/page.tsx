@@ -8,6 +8,8 @@ import {
   reserve,
   CinemaHall,
 } from "util/cinemaSeatReservation";
+import HeaderComponent from "../headerComponent";
+import BackButton from "./BackButton";
 import { CinemaSeat } from "./CinemaSeat";
 
 type CinemaHallProps = {
@@ -29,11 +31,16 @@ export default function CinemaAuditorium({
 
   return (
     <>
-      <h1 className="border-b-2 border-black pt-2 pl-2 text-4xl">
-        Cinema Hall {hallNumber}
-      </h1>
-      <h2 className="pt-6 pl-6">Hall Plan</h2>
-      <div className="flex flex-col">
+      <HeaderComponent
+        pageTitle={`Cinema Hall ${hallNumber}`}
+        subTitle="Hall Plan"
+      />
+      <BackButton
+        className={
+          "fixed right-20 top-6 mt-4 rounded-md bg-sky-200 px-4 py-4 text-lg font-semibold"
+        }
+      />
+      <div className="flex flex-col p-4">
         {Object.keys(auditorium).map((row) => {
           const rowNumb = parseInt(row);
           return (
@@ -44,7 +51,7 @@ export default function CinemaAuditorium({
                 const seat = auditorium[rowNumb][placeNumb];
                 return (
                   <div
-                    className="h-14 w-12 border border-black bg-slate-600 text-center"
+                    className="h-28 w-24 border border-black bg-slate-600 text-center"
                     key={`${rowNumb}, ${placeNumb}`}
                     id={`${row}, ${place}`}
                   >
