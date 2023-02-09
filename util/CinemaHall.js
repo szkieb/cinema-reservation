@@ -11,7 +11,7 @@ import { CoupleSeat, Seat } from "./Seat";
 //7  □□□ □ □ □ □ □ ■
 //   1 2 3 4 5 6 7 8
 
-export const CINEMA_HALL_0: CinemaHall = {
+export const CINEMA_HALL_0 = {
   1: {
     1: new Seat(1, 1, true),
     2: new Seat(1, 2, false),
@@ -295,14 +295,14 @@ export const CINEMA_HALL_3 = {
   },
 };
 
-export const CINEMA: Cinema = {
+export const CINEMA = {
   CINEMA_HALL_0: CINEMA_HALL_0,
   CINEMA_HALL_1: CINEMA_HALL_1,
   CINEMA_HALL_2: CINEMA_HALL_2,
   CINEMA_HALL_3: CINEMA_HALL_3,
 };
 
-export const CINEMA_METADATA: CinemaMetadata = [
+export const CINEMA_METADATA = [
   {
     name: "CINEMA_HALL_0",
     ImgSrc: "https://images.unsplash.com/photo-1485095329183-d0797cdc5676",

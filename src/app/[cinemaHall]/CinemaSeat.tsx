@@ -33,7 +33,7 @@ export function CinemaSeat({
     } else {
       setSelect(false);
     }
-  }, [seatSelection]);
+  }, [seatSelection, currentSeat]);
 
   return (
     <button

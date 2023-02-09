@@ -7,6 +7,7 @@ import {
   CoupleSeatClass,
   reserve,
   CinemaHall,
+  Cinema,
 } from "util/cinemaSeatReservation";
 import HeaderComponent from "../headerComponent";
 import BackButton from "./BackButton";
@@ -22,7 +23,10 @@ export default function CinemaAuditorium({
   params: { cinemaHall },
 }: CinemaHallProps) {
   const hallNumber = parseInt(cinemaHall.charAt(cinemaHall.length - 1)) + 1;
-  const auditorium: CinemaHall = JSON.parse(JSON.stringify(CINEMA[cinemaHall]));
+
+  // @ts-ignore
+  const cinema: Cinema = CINEMA;
+  const auditorium: CinemaHall = JSON.parse(JSON.stringify(cinema[cinemaHall]));
 
   // state for reserve functionality
   const [useSelection, setSelection] = useState<
