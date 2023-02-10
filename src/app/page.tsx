@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import { CINEMA_METADATA, CINEMA } from "_data//cinemaHalls/CinemaHall";
 import HeaderComponent from "./headerComponent";
-import { Cinema, CinemaHall } from "util/cinemaSeatReservation";
+import { Cinema, CinemaHall } from "util/reserve";
 
 const inter = Inter({ subsets: ["latin"] });
 

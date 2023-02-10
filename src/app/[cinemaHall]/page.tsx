@@ -1,5 +1,5 @@
 import { CINEMA } from "_data/cinemaHalls/CinemaHall";
-import { CinemaHall, Cinema } from "util/cinemaSeatReservation";
+import { CinemaHall, Cinema } from "util/reserve";
 import HeaderComponent from "../../app/headerComponent";
 import BackButton from "./BackButton";
 import CinemaGrid from "./CinemaGrid";
@@ -19,7 +19,7 @@ export default function CinemaAuditorium({
   const cinema: Cinema = CINEMA;
 
   // TODO: replace next line
-  const auditorium: CinemaHall = JSON.parse(JSON.stringify(cinema[cinemaHall]));
+  const auditorium: CinemaHall = cinema[cinemaHall];
 
   return (
     <>

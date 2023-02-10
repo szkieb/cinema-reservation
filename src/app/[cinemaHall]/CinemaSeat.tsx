@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { MdEventSeat, MdOutlineChair } from "react-icons/md";
 import { IoMdHeart } from "react-icons/io";
 
-import { CoupleSeatClass, SeatClass } from "util/cinemaSeatReservation";
+import { CoupleSeatClass, SeatClass } from "util/reserve";
 
 type CinemaSeatProps = {
   clickhandler: () => void;

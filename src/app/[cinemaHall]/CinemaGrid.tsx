@@ -1,12 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import {
-  reserve,
-  CinemaHall,
-  CoupleSeatClass,
-  SeatClass,
-} from "util/cinemaSeatReservation";
+import { reserve, CinemaHall, CoupleSeatClass, SeatClass } from "util/reserve";
 
 import { CinemaSeat } from "./CinemaSeat";
 
