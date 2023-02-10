@@ -9,18 +9,16 @@ interface CinemaGridProps {
   auditorium: CinemaHall;
 }
 
-export default function CinemaGrid({ auditorium }: CinemaGridProps) {
+export default function CinemaGrid({
+  auditorium: auditoriumParsed,
+}: CinemaGridProps) {
   // state for reserve functionality
   const [useSelection, setSelection] = useState<
     (SeatClass | CoupleSeatClass)[]
   >([]);
 
-  // TODO: replace next line
-  const auditoriumParsed: CinemaHall = JSON.parse(JSON.stringify(auditorium));
-
   return (
     <div className="flex flex-col p-4">
-      {/* TODO fix error that is thrown by following line during build process */}
       {Object.keys(auditoriumParsed).map((row) => {
         const rowNumb = parseInt(row);
         return (

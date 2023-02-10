@@ -1,28 +1,30 @@
+"use client";
+
 import { CINEMA } from "_data/cinemaHalls/CinemaHall";
 import { CinemaHall, Cinema } from "util/reserve";
-import HeaderComponent from "../../app/headerComponent";
-import BackButton from "./BackButton";
-import CinemaGrid from "./CinemaGrid";
+import HeaderComponent from "../../components/headerComponent";
+import BackButton from "../../components/BackButton";
+import CinemaGrid from "../../components/CinemaGrid";
+import { useRouter } from "next/router";
 
-type CinemaHallProps = {
-  params: {
-    cinemaHall: string;
-  };
-};
+export default function CinemaAuditorium() {
+  const router = useRouter();
 
-export default function CinemaAuditorium({
-  params: { cinemaHall },
-}: CinemaHallProps) {
+  const cinemaHall = router.query.cinemaHall as string;
+
+  if (!cinemaHall) {
+    return <p>Loading...</p>;
+  }
+
   const hallNumber = parseInt(cinemaHall.charAt(cinemaHall.length - 1)) + 1;
 
   // @ts-ignore
   const cinema: Cinema = CINEMA;
 
-  // TODO: replace next line
   const auditorium: CinemaHall = cinema[cinemaHall];
 
   return (
-    <>
+    <div className="bg-slate-100 py-5 px-10">
       <HeaderComponent
         pageTitle={`Cinema Hall ${hallNumber}`}
         subTitle="Hall Plan"
@@ -33,6 +35,6 @@ export default function CinemaAuditorium({
         }
       />
       <CinemaGrid auditorium={auditorium}></CinemaGrid>
-    </>
+    </div>
   );
 }
