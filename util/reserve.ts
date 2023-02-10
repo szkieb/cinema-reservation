@@ -111,8 +111,8 @@ export function reserve(
       !previouslySelected &&
       cinemaHall[seat.row][seat.place].reserved === false
     ) {
-      seat.reserved = true;
-      updatedReservations.push(seat);
+      const newSeat = { ...seat, reserved: true };
+      updatedReservations.push(newSeat);
     }
   });
 
