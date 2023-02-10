@@ -1,7 +1,7 @@
 import clsx from "clsx";
-import { useState, useEffect } from "react";
-import { MdEventSeat, MdOutlineChair } from "react-icons/md";
 import { IoMdHeart } from "react-icons/io";
+import { MdEventSeat, MdOutlineChair } from "react-icons/md";
+import { useState, useEffect } from "react";
 
 import { CoupleSeatClass, SeatClass } from "util/reserve";
 

@@ -2,19 +2,12 @@ import { Inter } from "@next/font/google";
 import Link from "next/link";
 import Image from "next/image";
 
-import { CINEMA_METADATA, CINEMA } from "_data//cinemaHalls/CinemaHall";
+import { CINEMA_METADATA } from "_data//cinemaHalls/CinemaHall";
 import HeaderComponent from "./headerComponent";
-import { Cinema, CinemaHall } from "util/reserve";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  //@ts-ignore
-  const cinema: Cinema = CINEMA;
-  const cinemaHallArray = Object.keys(cinema).map((hall) => {
-    return cinema[hall];
-  });
-
   return (
     <>
       <HeaderComponent
@@ -42,12 +35,3 @@ export default function Home() {
     </>
   );
 }
-
-// export function generateStaticParams() {
-//   // @ts-ignore
-//   const cinema: Cinema = CINEMA;
-//   const cinemaHallArray = Object.keys(cinema).map((hall) => {
-//     return cinema[hall];
-//   });
-//   return cinemaHallArray;
-// }

@@ -1,8 +1,7 @@
-import { CINEMA } from "_data/cinemaHalls/CinemaHall";
-import { CinemaHall, Cinema } from "util/reserve";
-import HeaderComponent from "../../app/headerComponent";
 import BackButton from "./BackButton";
+import { CINEMA_METADATA } from "_data/cinemaHalls/CinemaHall";
 import CinemaGrid from "./CinemaGrid";
+import HeaderComponent from "../../app/headerComponent";
 
 type CinemaHallProps = {
   params: {
@@ -15,12 +14,6 @@ export default function CinemaAuditorium({
 }: CinemaHallProps) {
   const hallNumber = parseInt(cinemaHall.charAt(cinemaHall.length - 1)) + 1;
 
-  // @ts-ignore
-  const cinema: Cinema = CINEMA;
-
-  // TODO: replace next line
-  const auditorium: CinemaHall = cinema[cinemaHall];
-
   return (
     <>
       <HeaderComponent
@@ -32,7 +25,17 @@ export default function CinemaAuditorium({
           "fixed right-20 top-6 mt-4 rounded-md bg-sky-200 px-4 py-4 text-lg font-semibold"
         }
       />
-      <CinemaGrid auditorium={auditorium}></CinemaGrid>
+      <CinemaGrid cinemaHall={cinemaHall}></CinemaGrid>
     </>
   );
+}
+
+export function generateStaticParams() {
+  const cinemaHalls = CINEMA_METADATA.map((hall) => {
+    return hall;
+  });
+
+  return cinemaHalls.map((hall) => {
+    return { cinemaHall: hall.name };
+  });
 }

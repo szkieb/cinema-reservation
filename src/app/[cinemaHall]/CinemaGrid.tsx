@@ -1,34 +1,35 @@
 "use client";
 
 import { useState } from "react";
+
+import { CINEMA } from "_data/cinemaHalls/CinemaHall";
+import { CinemaSeat } from "./CinemaSeat";
 import { reserve, CinemaHall, CoupleSeatClass, SeatClass } from "util/reserve";
 
-import { CinemaSeat } from "./CinemaSeat";
-
 interface CinemaGridProps {
-  auditorium: CinemaHall;
+  cinemaHall: string;
 }
 
-export default function CinemaGrid({ auditorium }: CinemaGridProps) {
+export default function CinemaGrid({ cinemaHall }: CinemaGridProps) {
   // state for reserve functionality
   const [useSelection, setSelection] = useState<
     (SeatClass | CoupleSeatClass)[]
   >([]);
 
-  // TODO: replace next line
-  const auditoriumParsed: CinemaHall = JSON.parse(JSON.stringify(auditorium));
+  // @ts-ignore
+  const cinema: Cinema = CINEMA;
+  const auditorium: CinemaHall = cinema[cinemaHall];
 
   return (
     <div className="flex flex-col p-4">
-      {/* TODO fix error that is thrown by following line during build process */}
-      {Object.keys(auditoriumParsed).map((row) => {
+      {Object.keys(auditorium).map((row) => {
         const rowNumb = parseInt(row);
         return (
           <div className="flex justify-center" key={rowNumb} id={row}>
             <p className="pr-4">Row {rowNumb}:</p>
-            {Object.keys(auditoriumParsed[rowNumb]).map((place) => {
+            {Object.keys(auditorium[rowNumb]).map((place) => {
               const placeNumb = parseInt(place);
-              const seat = auditoriumParsed[rowNumb][placeNumb];
+              const seat = auditorium[rowNumb][placeNumb];
               return (
                 <div
                   className="h-28 w-24 border border-black bg-slate-600 text-center"
@@ -40,13 +41,13 @@ export default function CinemaGrid({ auditorium }: CinemaGridProps) {
                       const updatedReservation = reserve(
                         seat,
                         useSelection,
-                        auditoriumParsed
+                        auditorium
                       );
                       setSelection(updatedReservation);
                     }}
                     seatSelection={useSelection}
                     seat={seat}
-                    reserved={auditoriumParsed[rowNumb][placeNumb].reserved}
+                    reserved={auditorium[rowNumb][placeNumb].reserved}
                   ></CinemaSeat>
                 </div>
               );
