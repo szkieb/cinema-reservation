@@ -7,8 +7,8 @@ export default function HeaderComponent({
 }) {
   return (
     <header className="rounded-md bg-slate-400 p-4">
-      <h1 className="text-4xl">{pageTitle}</h1>
-      <h2 className="text-2xl">{subTitle}</h2>
+      <h1>{pageTitle}</h1>
+      <h2>{subTitle}</h2>
     </header>
   );
 }

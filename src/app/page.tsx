@@ -15,6 +15,18 @@ export default function Home() {
         subTitle="Please select a cinema"
       />
       <main style={inter.style}>
+        <p className="rounded-b-md bg-slate-200 py-6 px-14 text-justify text-lg ">
+          Choose between four different cinema halls, each with a different
+          layout. See which seats are already reserved and select seats that you
+          wish to reserve yourself. The reservation algorithm will check your
+          request and update it in accordance with the{" "}
+          <Link href={"/about"}>reservation objectives</Link>. Objectives as
+          well as the data structure for cinema halls and seats are part of a
+          coding challenge found at{" "}
+          <a target={"_blank"} href="https://platform.entwicklerheld.de/">
+            entwicklerheld.de
+          </a>
+        </p>
         <div className="grid grid-cols-2 gap-5 p-4">
           {CINEMA_METADATA.map((hall, idx) => (
             <Link href={`${hall.name}`} className="h-full w-full" key={idx}>

@@ -21,7 +21,7 @@ export default function CinemaGrid({ cinemaHall }: CinemaGridProps) {
   const auditorium: CinemaHall = cinema[cinemaHall];
 
   return (
-    <div className="flex flex-col p-4">
+    <div className="flex flex-col">
       {Object.keys(auditorium).map((row) => {
         const rowNumb = parseInt(row);
         return (

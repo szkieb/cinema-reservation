@@ -2,6 +2,7 @@ import BackButton from "./BackButton";
 import { CINEMA_METADATA } from "_data/cinemaHalls/CinemaHall";
 import CinemaGrid from "./CinemaGrid";
 import HeaderComponent from "../../app/headerComponent";
+import Sidebar from "./Sidebar";
 
 type CinemaHallProps = {
   params: {
@@ -25,7 +26,10 @@ export default function CinemaAuditorium({
           "fixed right-20 top-6 mt-4 rounded-md bg-sky-200 px-4 py-4 text-lg font-semibold"
         }
       />
-      <CinemaGrid cinemaHall={cinemaHall}></CinemaGrid>
+      <div className="flex justify-evenly gap-4 p-6">
+        <CinemaGrid cinemaHall={cinemaHall}></CinemaGrid>
+        <Sidebar className="- w-1/4 rounded-md bg-slate-200 p-4 text-justify text-sm" />
+      </div>
     </>
   );
 }
