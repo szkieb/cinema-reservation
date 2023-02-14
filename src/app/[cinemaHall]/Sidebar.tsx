@@ -8,7 +8,11 @@ export default function Sidebar({ className }: { className?: string }) {
       <p>
         Below are the guidelines used for this reservation tool. The guidelines
         are taken from a coding challenge found at{" "}
-        <a target={"_blank"} href="https://platform.entwicklerheld.de/">
+        <a
+          target={"_blank"}
+          rel="noopener noreferrer"
+          href="https://platform.entwicklerheld.de/"
+        >
           entwicklerheld.de
         </a>
       </p>
@@ -21,12 +25,12 @@ export default function Sidebar({ className }: { className?: string }) {
       <p>
         By clicking on a selected seat it should be marked as unselected again.
       </p>
-      <h3>Don't leave a single place!</h3>
+      <h3>Don&apos;t leave a single place!</h3>
       <p>
-        Because the cinema is not that big, it's dependent on every sold ticket.
-        So it would cost a lot of revenue if visitors would leave a single seat
-        between others. That's why your seat may be moved if you leave a single
-        place to other reserved seats.
+        Because the cinema is not that big, it&apos;s dependent on every sold
+        ticket. So it would cost a lot of revenue if visitors would leave a
+        single seat between others. That&apos;s why your seat may be moved if
+        you leave a single place to other reserved seats.
       </p>
       <h3> Maybe your whole selection has to move!</h3>
       <p>
@@ -39,13 +43,14 @@ export default function Sidebar({ className }: { className?: string }) {
       <h3>Move to a CoupleSeat </h3>
       <p>
         Whether you like couples or not, you may need to move to CoupleSeats to
-        fill single places. Because CoupleSeats can't be moved in the cinema, we
-        need to move a single place or a group selection next to the CoupleSeat.
+        fill single places. Because CoupleSeats can&apos;t be moved in the
+        cinema, we need to move a single place or a group selection next to the
+        CoupleSeat.
       </p>
       <br />
       <p>
         Visit the <Link href={"/about"}>About Page </Link> for a detailed
-        description of the algorithm's objectives
+        description of the algorithm&apos;s objectives
       </p>
     </div>
   );

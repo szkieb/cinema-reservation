@@ -23,7 +23,11 @@ export default function Home() {
           <Link href={"/about"}>reservation objectives</Link>. Objectives as
           well as the data structure for cinema halls and seats are part of a
           coding challenge found at{" "}
-          <a target={"_blank"} href="https://platform.entwicklerheld.de/">
+          <a
+            target={"_blank"}
+            rel="noopener noreferrer"
+            href="https://platform.entwicklerheld.de/"
+          >
             entwicklerheld.de
           </a>
         </p>
